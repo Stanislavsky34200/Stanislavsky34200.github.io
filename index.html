@@ -1,8 +1,10 @@
 <html>
     <head></head>
     <body>
+        <pre id="ua"></pre>
         <pre id="result"></pre>
         <script>
+            document.querySelector('#ua').innerHTML = navigator.userAgent;
             const HINT_NAMES = [
                 'architecture',
                 'bitness',

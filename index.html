@@ -1,0 +1,27 @@
+<html>
+    <head></head>
+    <body>
+        <pre id="result"></pre>
+        <script>
+            const HINT_NAMES = [
+                'architecture',
+                'bitness',
+                'model',
+                'platformVersion',
+                'uaFullVersion',
+                'fullVersionList',
+            ];
+            const element = document.querySelector('#result');
+            const uaData = [];
+
+            navigator.userAgentData.getHighEntropyValues(HINT_NAMES).then((uaHints) => {
+                element.innerHTML = Object.entries(uaHints).map(([key, value]) => {
+                    const val = Array.isArray(value)
+                        ? value.map(({brand, version}) => `${brand} - ${version}`).join(', ')
+                        : value;
+                    return `${key}: ${val}`;
+                }).join('\n');
+            });
+        </script>
+    </body>
+</html>

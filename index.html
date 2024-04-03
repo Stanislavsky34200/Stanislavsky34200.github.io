@@ -5,7 +5,8 @@
         <script>
             var script = document.createElement('script');
             script.setAttribute('src', '/script.js');
-            script.attachEvent('onload', function () { alert('called!'); });
+            script.onload = function () { console.log('onload') };
+            script.attachEvent('onload', function () { console.log('attachEvent'); });
             document.body.appendChild(script);
         </script>
     </body>

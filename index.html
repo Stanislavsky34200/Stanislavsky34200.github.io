@@ -1,29 +1,13 @@
 <html>
-    <head></head>
+    <head>
+        <script src="http://mc.yandex.ru/metrika/tag.js"></script>
+    </head>
     <body>
-        <pre id="ua"></pre>
-        <pre id="result"></pre>
         <script>
-            document.querySelector('#ua').innerHTML = navigator.userAgent;
-            const HINT_NAMES = [
-                'architecture',
-                'bitness',
-                'model',
-                'platformVersion',
-                'uaFullVersion',
-                'fullVersionList',
-            ];
-            const element = document.querySelector('#result');
-            const uaData = [];
-
-            navigator.userAgentData.getHighEntropyValues(HINT_NAMES).then((uaHints) => {
-                element.innerHTML = Object.entries(uaHints).map(([key, value]) => {
-                    const val = Array.isArray(value)
-                        ? value.map(({brand, version}) => `${brand} - ${version}`).join(', ')
-                        : value;
-                    return `${key}: ${val}`;
-                }).join('\n');
-            });
+            var script = document.createElement('script');
+            script.setAttribute('src', 'https://mc.yandex.ru/metrika/tag.js');
+            script.attachEvent('onload', function () { alert('called!'); });
+            document.body.appendChild(script);
         </script>
     </body>
 </html>

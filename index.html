@@ -1,13 +1,17 @@
 <html>
     <head>
+        <script src="https://mc.yandex.ru/metrika/tag.js"></script>
     </head>
     <body>
+        <form>
+            <label>
+                Some input
+                <input type="text"/>
+            </label>
+            <button>Submit</button>
+        </form>
         <script>
-            var script = document.createElement('script');
-            script.setAttribute('src', '/script.js');
-            script.onload = function () { console.log('onload') };
-            script.attachEvent('onload', function () { console.log('attachEvent'); });
-            document.body.appendChild(script);
+            document.querySelector('form').addEventListener('submit', (e) => e.preventDefault());
         </script>
     </body>
 </html>
